@@ -25,11 +25,8 @@ fun DoctorsListScreen() {
     Scaffold(
         topBar = {
             TopAppBar(
-
                 title = { Text("Doctors List", color = Color.White) },
                 colors = TopAppBarDefaults.topAppBarColors(containerColor = Color.Blue)
-
-
             )
         },
 
