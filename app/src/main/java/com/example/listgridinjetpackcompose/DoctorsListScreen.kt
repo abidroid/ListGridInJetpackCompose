@@ -8,11 +8,14 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Call
 import androidx.compose.material.icons.filled.Favorite
@@ -30,7 +33,10 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -68,7 +74,6 @@ fun DoctorsListScreen() {
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .padding(7.dp),
-
                             onClick = {
                                 Toast.makeText(myContext, "You clicked ${doctor.name}", Toast.LENGTH_SHORT)
 
@@ -78,24 +83,29 @@ fun DoctorsListScreen() {
                                 Row(
                                     modifier = Modifier
                                         .padding(7.dp)
-                                        .fillMaxWidth()
+                                        .fillMaxWidth(),
+                                    horizontalArrangement = Arrangement.SpaceBetween,
+                                    verticalAlignment = Alignment.CenterVertically
                                 ) {
                                     Row(
-                                        //modifier = Modifier.fillMaxWidth()
+                                        verticalAlignment = Alignment.CenterVertically
                                     ) {
 
                                         Image(
                                             painter = painterResource(id = doctor.image),
                                             contentDescription = "Doctor Image",
+                                            contentScale = ContentScale.Crop,
+                                            modifier = Modifier.size(80.dp)
+                                                .clip(shape = CircleShape)
 
                                             )
 
                                         Spacer(modifier = Modifier.padding(8.dp))
                                         Column(
-                                            verticalArrangement = Arrangement.Center
+                                            verticalArrangement = Arrangement.Center,
                                         ) {
                                             Text(doctor.name, fontSize = 30.sp)
-                                            Spacer(modifier = Modifier.padding(8.dp))
+                                            Spacer(modifier = Modifier.padding(4.dp))
                                             Text(doctor.spe)
                                         }
                                     }
