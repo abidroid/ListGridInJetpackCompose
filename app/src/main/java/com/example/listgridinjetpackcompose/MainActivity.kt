@@ -36,9 +36,9 @@ fun MyNavigation() {
 
     NavHost(navController = navController, startDestination = "DoctorsListScreen") {
         composable("DoctorsListScreen") {
-            DoctorsListScreen()
+            DoctorsListScreen(navController)
         }
-        composable("DoctorsDetailsScreen/{doctorName}",
+        composable("DoctorDetailScreen/{doctorName}",
             arguments = listOf(
                 navArgument("doctorName") { type = NavType.StringType }
             )) {

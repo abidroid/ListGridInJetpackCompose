@@ -42,10 +42,11 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun DoctorsListScreen() {
+fun DoctorsListScreen(navController: NavController) {
 
     val doctorsList = retrieveDoctors()
     val myContext = LocalContext.current
@@ -110,7 +111,9 @@ fun DoctorsListScreen() {
                                         }
                                     }
 
-                                    Button(onClick = { /*TODO*/ }) {
+                                    Button(onClick = {
+                                        navController.navigate("DoctorDetailScreen/${doctor.name}")
+                                    }) {
                                         androidx.compose.material3.Icon(imageVector = Icons.Filled.Favorite, contentDescription = "Favorite")
                                     }
 
@@ -124,10 +127,4 @@ fun DoctorsListScreen() {
             }
         }
     )
-}
-
-@Preview
-@Composable
-fun DoctorsListScreenPreview() {
-    DoctorsListScreen()
 }
