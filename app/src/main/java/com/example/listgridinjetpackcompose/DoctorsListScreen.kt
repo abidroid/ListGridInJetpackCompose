@@ -76,7 +76,7 @@ fun DoctorsListScreen(navController: NavController) {
                                 .fillMaxWidth()
                                 .padding(7.dp),
                             onClick = {
-                                Toast.makeText(myContext, "You clicked ${doctor.name}", Toast.LENGTH_SHORT)
+                                Toast.makeText(myContext, "You clicked ${doctor.name}", Toast.LENGTH_SHORT).show()
 
                             },
                             content = {
