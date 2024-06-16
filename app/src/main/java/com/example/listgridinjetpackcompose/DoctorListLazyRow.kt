@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
-import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -18,12 +17,10 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarColors
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.scale
-import androidx.compose.ui.graphics.Color
+
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
@@ -86,7 +83,9 @@ fun DoctorListLazyRow(navController: NavController) {
                                     Spacer(modifier = Modifier.height(10.dp))
                                 }
 
-                                Button(onClick = { /*TODO*/ }) {
+                                Button(onClick = {
+                                    navController.navigate("DoctorDetailScreen/${doctor.name}")
+                                }) {
                                     Icon(imageVector = Icons.AutoMirrored.Filled.ArrowForward, contentDescription = "Favorite")
                                 }
                             }
