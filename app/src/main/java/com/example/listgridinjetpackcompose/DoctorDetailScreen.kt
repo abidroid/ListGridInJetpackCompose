@@ -18,7 +18,7 @@ import androidx.navigation.NavController
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun DoctorDetailScreen(navController: NavController, doctor: DoctorModel) {
+fun DoctorDetailScreen(navController: NavController, doctorName: String) {
 
     Scaffold(
         topBar = {

@@ -38,10 +38,17 @@ fun MyNavigation() {
         composable("DoctorsListScreen") {
             DoctorsListScreen()
         }
-//        composable("DoctorsDetailsScreen/{doctor}",
-//            arguments = listOf(
-//                navArgument("doctor") {type = NavType.DoctorModelType}
-//            ) ){}
+        composable("DoctorsDetailsScreen/{doctorName}",
+            arguments = listOf(
+                navArgument("doctorName") { type = NavType.StringType }
+            )) {
+            val doctorName = it.arguments?.getString("doctorName")
+
+            doctorName?.let {
+                DoctorDetailScreen(navController, doctorName)
+
+            }
+        }
 
     }
 }

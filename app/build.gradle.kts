@@ -59,6 +59,8 @@ dependencies {
     // dependency for compose navigation
     implementation("androidx.navigation:navigation-compose:2.5.3")
     implementation ("com.google.code.gson:gson:2.10")
+    implementation( "org.jetbrains.kotlinx:kotlinx-parcelize:1.7.0")
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
