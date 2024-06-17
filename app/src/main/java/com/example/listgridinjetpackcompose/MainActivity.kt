@@ -29,9 +29,12 @@ fun MyNavigation() {
 
     val navController = rememberNavController()
 
-    NavHost(navController = navController, startDestination = "DoctorListLazyRow") {
-        composable("DoctorListLazyRow") {
-            DoctorListLazyRow(navController)
+    NavHost(navController = navController, startDestination = "DoctorListLazyVGrid") {
+//        composable("DoctorListLazyRow") {
+//            DoctorListLazyRow(navController)
+//        }
+        composable("DoctorListLazyVGrid") {
+            DoctorListLazyVGrid(navController)
         }
         composable("DoctorDetailScreen/{doctorName}",
             arguments = listOf(
