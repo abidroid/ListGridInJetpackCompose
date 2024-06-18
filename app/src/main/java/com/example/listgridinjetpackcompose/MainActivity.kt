@@ -29,13 +29,18 @@ fun MyNavigation() {
 
     val navController = rememberNavController()
 
-    NavHost(navController = navController, startDestination = "DoctorListLazyVGrid") {
+    NavHost(navController = navController, startDestination = "DoctorListLazyHGrid") {
 //        composable("DoctorListLazyRow") {
 //            DoctorListLazyRow(navController)
 //        }
-        composable("DoctorListLazyVGrid") {
-            DoctorListLazyVGrid(navController)
+//        composable("DoctorListLazyVGrid") {
+//            DoctorListLazyVGrid(navController)
+//        }
+
+        composable("DoctorListLazyHGrid") {
+            DoctorListLazyHGrid(navController)
         }
+
         composable("DoctorDetailScreen/{doctorName}",
             arguments = listOf(
                 navArgument("doctorName") { type = NavType.StringType }
