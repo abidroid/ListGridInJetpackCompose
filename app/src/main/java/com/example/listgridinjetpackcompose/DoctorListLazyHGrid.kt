@@ -5,6 +5,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -13,8 +14,12 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyHorizontalGrid
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowForward
+import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -79,6 +84,16 @@ fun DoctorListLazyHGrid(navController: NavController) {
                                         .clip(RoundedCornerShape(10.dp)),
 
                                     )
+                                Spacer(modifier = Modifier.height(8.dp))
+                                Text(doctor.name)
+                                Spacer(modifier = Modifier.height(8.dp))
+                                Text(doctor.spe)
+                                Spacer(modifier = Modifier.height(8.dp))
+                                Button(onClick = {
+                                    navController.navigate("DoctorDetailScreen/${doctor.name}")
+                                }) {
+                                    Icon(imageVector = Icons.AutoMirrored.Filled.ArrowForward, contentDescription = "Go")
+                                }
                             }
 
                         }
